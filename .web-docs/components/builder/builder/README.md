@@ -16,11 +16,11 @@ with zstack vm instance based on existing images.
 - `auth_type` (string) - Authentication type used to connect zstack API. Can be any of
   access_key, account, account_user.
 
-- `image_backup_storage` (string) - The backup storage uuid to store the created image.
+- `image_backup_storage` (string) - The zstack backup storage uuid to store the created image.
 
-- `instance_offering` (string) - The instance offering uuid to be used by the instance.
+- `instance_offering` (string) - The builer instance offering uuid to be used by the instance.
 
-- `instance_network` (string) - The instance network uuid to be used by the instance.
+- `instance_network` (string) - The builder instance network uuid to be used by the instance.
 
 - `source_image` (string) - The source image uuid to use to create the new image from.
 
@@ -52,15 +52,17 @@ with zstack vm instance based on existing images.
 
 - `host` (string) - The zstack API Host to connect.
 
-- `image_name` (string) - The unique name of the created image. Defaults to
+- `attach_guest_tools_iso` (bool) - AttachGuestToolsISO attach guest-tools ISO to the builder instance
+
+- `image_name` (string) - The name of the created image. Defaults to
   `packer-{{timestamp}}`.
 
 - `image_description` (string) - The description of the created image.
 
-- `instance_name` (string) - A name to give the launched instance.
+- `instance_name` (string) - A name to give the launched builder instance.
   Defaults to `packer-{{uuid}}`.
 
-- `instance_root_disk` (int64) - The instance root disk size in GB. This defaults to source image size.
+- `instance_root_disk` (int64) - The builder instance root disk size in GB. This defaults to source image size.
   NOTE: This value would become the created image size.
 
 <!-- End of code generated from the comments of the Config struct in builder/instance/config.go; -->

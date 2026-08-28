@@ -12,15 +12,17 @@
 
 - `host` (string) - The zstack API Host to connect.
 
-- `image_name` (string) - The unique name of the created image. Defaults to
+- `attach_guest_tools_iso` (bool) - AttachGuestToolsISO attach guest-tools ISO to the builder instance
+
+- `image_name` (string) - The name of the created image. Defaults to
   `packer-{{timestamp}}`.
 
 - `image_description` (string) - The description of the created image.
 
-- `instance_name` (string) - A name to give the launched instance.
+- `instance_name` (string) - A name to give the launched builder instance.
   Defaults to `packer-{{uuid}}`.
 
-- `instance_root_disk` (int64) - The instance root disk size in GB. This defaults to source image size.
+- `instance_root_disk` (int64) - The builder instance root disk size in GB. This defaults to source image size.
   NOTE: This value would become the created image size.
 
 <!-- End of code generated from the comments of the Config struct in builder/instance/config.go; -->

@@ -73,6 +73,7 @@ type FlatConfig struct {
 	AccountUserName           *string           `mapstructure:"account_username" required:"false" cty:"account_username" hcl:"account_username"`
 	AccountPassword           *string           `mapstructure:"password" required:"false" cty:"password" hcl:"password"`
 	APIHost                   *string           `mapstructure:"host" required:"false" cty:"host" hcl:"host"`
+	AttachGuestToolsISO       *bool             `mapstructure:"attach_guest_tools_iso" required:"false" cty:"attach_guest_tools_iso" hcl:"attach_guest_tools_iso"`
 	AuthType                  *string           `mapstructure:"auth_type" required:"true" cty:"auth_type" hcl:"auth_type"`
 	ImageName                 *string           `mapstructure:"image_name" required:"false" cty:"image_name" hcl:"image_name"`
 	ImageDescription          *string           `mapstructure:"image_description" required:"false" cty:"image_description" hcl:"image_description"`
@@ -159,6 +160,7 @@ func (*FlatConfig) HCL2Spec() map[string]hcldec.Spec {
 		"account_username":             &hcldec.AttrSpec{Name: "account_username", Type: cty.String, Required: false},
 		"password":                     &hcldec.AttrSpec{Name: "password", Type: cty.String, Required: false},
 		"host":                         &hcldec.AttrSpec{Name: "host", Type: cty.String, Required: false},
+		"attach_guest_tools_iso":       &hcldec.AttrSpec{Name: "attach_guest_tools_iso", Type: cty.Bool, Required: false},
 		"auth_type":                    &hcldec.AttrSpec{Name: "auth_type", Type: cty.String, Required: false},
 		"image_name":                   &hcldec.AttrSpec{Name: "image_name", Type: cty.String, Required: false},
 		"image_description":            &hcldec.AttrSpec{Name: "image_description", Type: cty.String, Required: false},

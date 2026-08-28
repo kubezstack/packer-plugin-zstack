@@ -99,5 +99,13 @@ func (s *StepCreateInstance) Run(ctx context.Context, state multistep.StateBag) 
 
 	ui.Message("Using first instance vmnic IP address as host communicator - IP Adress: " + instance.VmNics[0].Ip)
 	state.Put("instance_ip", instance.VmNics[0].Ip)
+
+	if _, err := client.AttachGuestToolsIsoToVm(instance.UUID, param.AttachGuestToolsIsoToVmParam{}); err != nil {
+		err := fmt.Errorf("error attatching guest-tools ISO to instance: %s", err)
+		state.Put("error", err)
+		ui.Error(err.Error())
+		return multistep.ActionHalt
+	}
+
 	return multistep.ActionContinue
 }

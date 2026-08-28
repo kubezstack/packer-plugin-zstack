@@ -31,25 +31,27 @@ type Config struct {
 	AccountPassword string `mapstructure:"password" required:"false"`
 	// The zstack API Host to connect.
 	APIHost string `mapstructure:"host" required:"false"`
+	// AttachGuestToolsISO attach guest-tools ISO to the builder instance
+	AttachGuestToolsISO bool `mapstructure:"attach_guest_tools_iso" required:"false"`
 	// Authentication type used to connect zstack API. Can be any of
 	// access_key, account, account_user.
 	AuthType string `mapstructure:"auth_type" required:"true"`
-	// The unique name of the created image. Defaults to
+	// The name of the created image. Defaults to
 	// `packer-{{timestamp}}`.
 	ImageName string `mapstructure:"image_name" required:"false"`
 	// The description of the created image.
 	ImageDescription string `mapstructure:"image_description" required:"false"`
-	// The backup storage uuid to store the created image.
+	// The zstack backup storage uuid to store the created image.
 	ImageBackupStorage string `mapstructure:"image_backup_storage" required:"true"`
-	// A name to give the launched instance.
+	// A name to give the launched builder instance.
 	// Defaults to `packer-{{uuid}}`.
 	InstanceName string `mapstructure:"instance_name" required:"false"`
-	// The instance root disk size in GB. This defaults to source image size.
+	// The builder instance root disk size in GB. This defaults to source image size.
 	// NOTE: This value would become the created image size.
 	InstanceRootDisk int64 `mapstructure:"instance_root_disk" required:"false"`
-	// The instance offering uuid to be used by the instance.
+	// The builer instance offering uuid to be used by the instance.
 	InstanceOffering string `mapstructure:"instance_offering" required:"true"`
-	// The instance network uuid to be used by the instance.
+	// The builder instance network uuid to be used by the instance.
 	InstanceNetwork string `mapstructure:"instance_network" required:"true"`
 	// The source image uuid to use to create the new image from.
 	SourceImage string `mapstructure:"source_image" required:"true"`
