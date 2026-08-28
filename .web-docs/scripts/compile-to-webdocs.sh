@@ -92,7 +92,7 @@ processComponentFile() {
     cp "$componentFile" "$webDocsFile"
 
     # Remove the Header
-    local lastMetadataLine="$(grep -n -m 2 '^\-\-\-' "$componentFile" | tail -n1 | cut -d':' -f1)"
+    local lastMetadataLine="$(grep -n -m 2 '^---' "$componentFile" | tail -n1 | cut -d':' -f1)"
     cat "$webDocsFile" | tail -n +"$(($lastMetadataLine+2))"  > "$webDocsFileTmp"
     mv "$webDocsFileTmp" "$webDocsFile"
 
